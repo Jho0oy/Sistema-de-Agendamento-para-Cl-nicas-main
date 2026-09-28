@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 public class Main {
 
-    static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
 
-    static ArrayList<Paciente> pacientes = new ArrayList<>();
-    static ArrayList<Medico> medicos = new ArrayList<>();
+    private static final ArrayList<Paciente> pacientes = new ArrayList<>();
+    private static final ArrayList<Medico> medicos = new ArrayList<>();
 
     // Cores ANSI para deixar o console mais 'vivo'
     private static final String RESET = "\u001B[0m";
@@ -232,9 +232,9 @@ public class Main {
 
                 boolean pacienteEncontrado = false;
                 for (Paciente paciente : pacientes) {
-                    if (paciente.cpf.equals(cpfBusca)) {
+                    if (paciente.getCpf().equals(cpfBusca)) {
                         System.out.println(GREEN + "Paciente encontrado!" + RESET);
-                        System.out.println(GREEN + "Nome: " + paciente.nome + RESET);
+                        System.out.println(GREEN + "Nome: " + paciente.getNome() + RESET);
                         System.out.println(GREEN + "CPF: " + paciente.getCpfFormatado() + RESET);
                         System.out.println(GREEN + "Telefone: " + paciente.getTelefoneFormatado() + RESET);
                         pacienteEncontrado = true;
@@ -280,9 +280,9 @@ public class Main {
             if (opcao == 4) { //OPÇÃO PARA LISTAR MÉDICOS CADASTRADOS
                 System.out.println(YELLOW + "========== Lista de Médicos: ==========" + RESET);
                 for (Medico medico : medicos) {
-                    System.out.println(GREEN + " Nome:" + medico.nome + RESET);
-                    System.out.println(GREEN + " Especialidade: " + medico.especialidade + RESET);
-                    System.out.println(GREEN + " CRM: " + medico.crm + " - " + medico.ufCrm + RESET);
+                    System.out.println(GREEN + " Nome:" + medico.getNome() + RESET);
+                    System.out.println(GREEN + " Especialidade: " + medico.getEspecialidade() + RESET);
+                    System.out.println(GREEN + " CRM: " + medico.getCrm() + " - " + medico.getUfCrm() + RESET);
                 }
             }
 
